@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Beriz ♡</title>
+  <meta name="description" content="A special birthday landing page crafted with love, memories, and heartfelt wishes.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            berry: {
+              50: '#FDF2F4',
+              100: '#FCE7EC',
+              200: '#F7D0D9',
+              300: '#EEA2B3',
+              400: '#E26D87',
+              500: '#CF3B62',
+              600: '#B8284F',
+              700: '#9B2242', /* Reference Primary Color */
+              800: '#801B36',
+              900: '#69152B',
+            },
+            cream: {
+              50: '#FDFCFB',
+              100: '#FAF7F5',
+              200: '#F4ECE8',
+              300: '#EDE0DC',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            cormorant: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            handwriting: ['"Caveat"', 'cursive']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & Canvas Confetti -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+  class="bg-[#FAF7F5] text-[#2D2426] font-sans antialiased selection:bg-[#FCE7EC] selection:text-[#9B2242] relative overflow-x-hidden min-h-screen">
+
+  <!-- Subtle Drifting Rose Petals Canvas Background -->
+  <canvas id="petals-canvas" class="fixed inset-0 pointer-events-none z-10 w-full h-full"></canvas>
+
+  <!-- ========================================================================
+       NAVIGATION BAR
+       ======================================================================== -->
+  <header
+    class="sticky top-0 z-40 bg-[#FAF7F5]/90 backdrop-blur-md border-b border-rose-100/60 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Logo / Brand -->
+      <a href="#hero" class="group flex items-center gap-1.5 focus:outline-none">
+        <span
+          class="font-serif italic text-2xl md:text-3xl font-medium tracking-tight text-[#9B2242] group-hover:scale-105 transition-transform duration-300">
+          Beriz
+        </span>
+        <span class="text-sm text-[#9B2242] transform group-hover:rotate-12 transition-transform duration-300">♡</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-[11px] font-semibold tracking-widest text-stone-600 uppercase">
+        <a href="#hero" class="hover:text-[#9B2242] transition-colors duration-200">HOME</a>
+        <a href="#story" class="hover:text-[#9B2242] transition-colors duration-200">OUR STORY</a>
+        <a href="#gallery" class="hover:text-[#9B2242] transition-colors duration-200">MEMORIES</a>
+        <a href="#reasons" class="hover:text-[#9B2242] transition-colors duration-200">REASONS</a>
+        <a href="#wishes" class="hover:text-[#9B2242] transition-colors duration-200">WISHES</a>
+        <!-- <a href="#coupons" class="hover:text-[#9B2242] transition-colors duration-200">COUPONS</a> -->
+      </nav>
+
+      <!-- Action & Floating Sound Trigger Button -->
+      <div class="flex items-center gap-3">
+        <button id="floating-sound-btn" title="Toggle Romantic Melody"
+          class="w-10 h-10 rounded-full bg-rose-50 hover:bg-rose-100 text-[#9B2242] border border-rose-200 flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-105 group focus:outline-none">
+          <i data-lucide="music" class="w-4 h-4 group-hover:animate-bounce"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-20">
+
+    <!-- ========================================================================
+         HERO SECTION
+         ======================================================================== -->
+    <section id="hero" class="pt-8 pb-20 md:py-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          <!-- Left Column: Typography & CTAs -->
+          <div class="lg:col-span-7 flex flex-col items-start">
+            <!-- Pill Badge -->
+            <div
+              class="inline-flex items-center gap-2 bg-[#FCE7EC] text-[#9B2242] text-[11px] font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 border border-rose-200/50 shadow-sm">
+              <span class="text-xs">✨</span>
+              <span>THE ONE WHO HOLDS MY HEART</span>
+            </div>
+
+            <!-- Big Romantic Headline -->
+            <h1
+              class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal text-stone-900 leading-[1.08] tracking-tight">
+              Happy Birthday,<br>
+              <span class="italic text-[#9B2242] font-normal">Berizz.</span>
+            </h1>
+
+            <!-- Subtitle Description -->
+            <p class="text-stone-600 text-base md:text-lg font-light leading-relaxed max-w-lg mt-6">
+              To the one who makes every single day brighter, gentler, and infinitely better.
+            </p>
+
+            <!-- Stats Metric Row -->
+            <div class="grid grid-cols-3 gap-6 sm:gap-10 border-y border-stone-200/70 py-6 my-8 w-full max-w-md">
+              <div>
+                <div class="font-serif text-2xl sm:text-3xl font-medium text-stone-900">8,766+</div>
+                <div class="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-stone-500 mt-1">Days of
+                  grace</div>
+              </div>
+              <div>
+                <div class="font-serif text-2xl sm:text-3xl font-medium text-stone-900">365</div>
+                <div class="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-stone-500 mt-1">Fresh
+                  smiles ahead</div>
+              </div>
+              <div>
+                <div class="font-serif text-2xl sm:text-3xl font-medium text-stone-900">1</div>
+                <div class="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-stone-500 mt-1">Only
+                  you</div>
+              </div>
+            </div>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-wrap items-center gap-4">
+              <!-- Primary CTA -->
+              <button id="story-btn"
+                class="bg-[#9B2242] hover:bg-[#801B36] text-white text-xs font-semibold tracking-widest uppercase px-8 py-4 rounded-full shadow-lg shadow-rose-950/15 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none inline-flex items-center gap-2">
+                <span>READ OUR STORY</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+
+              <!-- Secondary CTA -->
+              <button id="gift-btn"
+                class="bg-white hover:bg-rose-50/50 text-stone-700 hover:text-[#9B2242] border border-stone-200 hover:border-rose-300 text-xs font-semibold tracking-widest uppercase px-8 py-4 rounded-full shadow-sm hover:shadow transition-all duration-300 focus:outline-none inline-flex items-center gap-2">
+                <span>OPEN GIFT NOW</span>
+                <i data-lucide="gift" class="w-3.5 h-3.5 text-[#9B2242]"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Featured Hero Portrait Card -->
+          <div class="lg:col-span-5 flex justify-center lg:justify-end">
+            <div class="relative w-full max-w-[380px] group">
+              <!-- Soft Glow Aura behind card -->
+              <div
+                class="absolute -inset-4 bg-gradient-to-tr from-rose-200/50 via-rose-100/30 to-amber-100/40 rounded-[36px] blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+              </div>
+
+              <!-- Main Card -->
+              <div
+                class="relative bg-white p-3 rounded-[32px] border border-rose-100/80 shadow-2xl shadow-rose-950/10 overflow-hidden transform group-hover:scale-[1.01] transition-transform duration-500">
+                <div class="aspect-[3/4] overflow-hidden rounded-[24px] relative">
+                  <img src="assets/hero_potrait4.jpeg" alt="Happy Birthday Portrait"
+                    class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700">
+
+                  <!-- Floating Badge at bottom right -->
+                  <div
+                    class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-md border border-white/60 flex items-center gap-1.5 text-stone-800 text-[10px] font-semibold tracking-wider uppercase">
+                    <span class="text-[#9B2242]">★</span>
+                    <span>FOREVER MY FAVORITE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         NOTE FROM THE HEART / ROMANTIC QUOTE SECTION
+         ======================================================================== -->
+    <section id="story" class="py-20 bg-gradient-to-b from-transparent via-rose-50/40 to-transparent">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <!-- Floating Heart Emblem -->
+        <div
+          class="w-12 h-12 rounded-full bg-[#9B2242] text-white flex items-center justify-center mx-auto shadow-lg shadow-rose-900/20 transform hover:scale-110 transition-transform duration-300">
+          <i data-lucide="heart" class="w-5 h-5 fill-current"></i>
+        </div>
+
+        <div class="text-[11px] font-bold uppercase tracking-widest text-[#9B2242] mt-6">
+          A NOTE FROM THE HEART
+        </div>
+
+        <!-- Big Romantic Quote -->
+        <blockquote
+          class="font-serif text-3xl sm:text-4xl lg:text-[40px] text-stone-900 font-normal italic leading-snug max-w-2xl mx-auto mt-4">
+          "Loving you is the easiest, sweetest thing I have ever done."
+        </blockquote>
+
+        <!-- Deep Narrative -->
+        <div class="mt-6 text-stone-600 text-sm md:text-base leading-relaxed max-w-xl mx-auto space-y-3 font-light">
+          <p>
+            You make ordinary days feel extraordinary, and everyday routines feel like poetry.
+          </p>
+          <p>
+            Thank you for your warmth, your patience, and your endless kindness.
+            Here's to growing older, dreaming bigger, and laughing louder together.
+          </p>
+        </div>
+
+        <!-- Romantic Signature -->
+        <div class="mt-8">
+          <span class="font-serif italic text-[#9B2242] text-lg md:text-xl font-medium tracking-wide">
+            Yours always and completely ♡
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CAPTURED STILLNESS / GALLERY SECTION
+         ======================================================================== -->
+    <section id="gallery" class="py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+          <div>
+            <div class="text-[11px] font-bold uppercase tracking-widest text-[#9B2242] mb-1">
+              MEMORIES & SMILES
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 font-normal">
+              Captured Stillness
+            </h2>
+          </div>
+          <div class="text-[11px] font-semibold tracking-widest uppercase text-stone-400 flex items-center gap-2">
+            <span>4 OF COUNTLESS MEMORIES</span>
+            <span class="text-[#9B2242]">♡</span>
+          </div>
+        </div>
+
+        <!-- 4 Grid Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Photo Card 1 -->
+          <div
+            class="gallery-card bg-white p-3 rounded-2xl border border-rose-100/70 shadow-sm hover:shadow-xl hover:border-rose-200 transition-all duration-300 group cursor-pointer">
+            <div class="aspect-[4/5] rounded-xl overflow-hidden bg-rose-50 relative">
+              <img src="assets/memory_coffee.png" alt="Coffee and Sweet Mornings"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-stone-950/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white/90 backdrop-blur-sm p-2 rounded-full text-stone-700 shadow-md">
+                  <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                </span>
+              </div>
+            </div>
+            <div class="pt-3 pb-1 px-1">
+              <h3 class="gallery-title text-sm font-semibold text-stone-800">Coffee & Sweet Mornings</h3>
+              <p class="gallery-location text-xs text-stone-400 mt-0.5 font-light">Café Bloom</p>
+            </div>
+          </div>
+
+          <!-- Photo Card 2 -->
+          <div
+            class="gallery-card bg-white p-3 rounded-2xl border border-rose-100/70 shadow-sm hover:shadow-xl hover:border-rose-200 transition-all duration-300 group cursor-pointer">
+            <div class="aspect-[4/5] rounded-xl overflow-hidden bg-rose-50 relative">
+              <img src="assets/memory_sunset.png" alt="Golden Coast Whispers"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-stone-950/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white/90 backdrop-blur-sm p-2 rounded-full text-stone-700 shadow-md">
+                  <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                </span>
+              </div>
+            </div>
+            <div class="pt-3 pb-1 px-1">
+              <h3 class="gallery-title text-sm font-semibold text-stone-800">Golden Coast Whispers</h3>
+              <p class="gallery-location text-xs text-stone-400 mt-0.5 font-light">Jimbaran Bay</p>
+            </div>
+          </div>
+
+          <!-- Photo Card 3 -->
+          <div
+            class="gallery-card bg-white p-3 rounded-2xl border border-rose-100/70 shadow-sm hover:shadow-xl hover:border-rose-200 transition-all duration-300 group cursor-pointer">
+            <div class="aspect-[4/5] rounded-xl overflow-hidden bg-rose-50 relative">
+              <img src="assets/memory_summer.png" alt="Sweet of Summer"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-stone-950/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white/90 backdrop-blur-sm p-2 rounded-full text-stone-700 shadow-md">
+                  <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                </span>
+              </div>
+            </div>
+            <div class="pt-3 pb-1 px-1">
+              <h3 class="gallery-title text-sm font-semibold text-stone-800">Sweet of Summer</h3>
+              <p class="gallery-location text-xs text-stone-400 mt-0.5 font-light">Day trip to seaside</p>
+            </div>
+          </div>
+
+          <!-- Photo Card 4 -->
+          <div
+            class="gallery-card bg-white p-3 rounded-2xl border border-rose-100/70 shadow-sm hover:shadow-xl hover:border-rose-200 transition-all duration-300 group cursor-pointer">
+            <div class="aspect-[4/5] rounded-xl overflow-hidden bg-rose-50 relative">
+              <img src="assets/memory_celebration.png" alt="City of Lanterns"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-stone-950/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="bg-white/90 backdrop-blur-sm p-2 rounded-full text-stone-700 shadow-md">
+                  <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                </span>
+              </div>
+            </div>
+            <div class="pt-3 pb-1 px-1">
+              <h3 class="gallery-title text-sm font-semibold text-stone-800">City of Lanterns</h3>
+              <p class="gallery-location text-xs text-stone-400 mt-0.5 font-light">A night to remember</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         WHY I ADORE YOU SECTION
+         ======================================================================== -->
+    <section id="reasons" class="py-20 bg-rose-50/30">
+      <div class="max-w-6xl mx-auto px-6">
+        <!-- Title & Subtitle -->
+        <div class="text-center max-w-xl mx-auto mb-14">
+          <div class="text-[11px] font-bold uppercase tracking-widest text-[#9B2242] mb-1">
+            LITTLE THINGS
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 font-normal">
+            Why I Adore You
+          </h2>
+        </div>
+
+        <!-- 6 Reasons Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Card 1 -->
+          <div
+            class="bg-white p-6 sm:p-7 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md hover:border-rose-300 transition-all duration-300">
+            <div class="w-9 h-9 rounded-xl bg-rose-50 text-[#9B2242] flex items-center justify-center mb-4">
+              <i data-lucide="smile" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-base font-semibold text-stone-900 mb-2">Your Soft Smile</h3>
+            <p class="text-xs text-stone-500 leading-relaxed font-light">
+              It warms my heart in ways words can't explain, lighting up even my greyest and hardest mornings.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white p-6 sm:p-7 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md hover:border-rose-300 transition-all duration-300">
+            <div class="w-9 h-9 rounded-xl bg-rose-50 text-[#9B2242] flex items-center justify-center mb-4">
+              <i data-lucide="heart-handshake" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-base font-semibold text-stone-900 mb-2">Pure Kindness</h3>
+            <p class="text-xs text-stone-500 leading-relaxed font-light">
+              The selfless, gentle love you pour into the world and everyone fortunate enough to be close to you.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white p-6 sm:p-7 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md hover:border-rose-300 transition-all duration-300">
+            <div class="w-9 h-9 rounded-xl bg-rose-50 text-[#9B2242] flex items-center justify-center mb-4">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-base font-semibold text-stone-900 mb-2">Patient Listener</h3>
+            <p class="text-xs text-stone-500 leading-relaxed font-light">
+              You listen with your whole heart and make me feel truly understood, respected, and completely safe.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="bg-white p-6 sm:p-7 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md hover:border-rose-300 transition-all duration-300">
+            <div class="w-9 h-9 rounded-xl bg-rose-50 text-[#9B2242] flex items-center justify-center mb-4">
+              <i data-lucide="music-2" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-base font-semibold text-stone-900 mb-2">Playful Laughter</h3>
+            <p class="text-xs text-stone-500 leading-relaxed font-light">
+              The sweet, infectious sound that makes whatever worry I carried vanish in an effortless second.
+            </p>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="bg-white p-6 sm:p-7 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md hover:border-rose-300 transition-all duration-300">
+            <div class="w-9 h-9 rounded-xl bg-rose-50 text-[#9B2242] flex items-center justify-center mb-4">
+              <i data-lucide="home" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-base font-semibold text-stone-900 mb-2">Gentle Comfort</h3>
+            <p class="text-xs text-stone-500 leading-relaxed font-light">
+              Home isn't a fixed place on a map; it's right wherever I am resting in your warm and calming embrace.
+            </p>
+          </div>
+
+          <!-- Card 6 -->
+          <div
+            class="bg-white p-6 sm:p-7 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md hover:border-rose-300 transition-all duration-300">
+            <div class="w-9 h-9 rounded-xl bg-rose-50 text-[#9B2242] flex items-center justify-center mb-4">
+              <i data-lucide="compass" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-base font-semibold text-stone-900 mb-2">Deep Dedication</h3>
+            <p class="text-xs text-stone-500 leading-relaxed font-light">
+              Your passion, resilience, and the unwavering faith you have in our future and the dreams we share.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         WISHES FOR THIS YEAR & MINI MUSIC PLAYER
+         ======================================================================== -->
+    <section id="wishes" class="py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+          <!-- Left Column: 3 Wishes Cards -->
+          <div class="lg:col-span-7">
+            <div class="text-[11px] font-bold uppercase tracking-widest text-[#9B2242] mb-1">
+              A HEARTFELT PRAYER
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 font-normal mb-8">
+              Wishes for This Year
+            </h2>
+
+            <div class="space-y-4">
+              <!-- Wish 1 -->
+              <div
+                class="bg-white p-5 rounded-2xl border border-rose-100/90 shadow-sm flex items-start gap-4 hover:border-rose-200 transition-all duration-200">
+                <div
+                  class="w-9 h-9 rounded-xl bg-rose-50 text-[#9B2242] flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <i data-lucide="flower" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="text-sm font-semibold text-stone-800">Peace & Radiant Health</h3>
+                  <p class="text-xs text-stone-500 leading-relaxed mt-1 font-light">
+                    May every single morning bring you calmness of mind and vitality that keeps you thriving
+                    effortlessly.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Wish 2 -->
+              <div
+                class="bg-white p-5 rounded-2xl border border-rose-100/90 shadow-sm flex items-start gap-4 hover:border-rose-200 transition-all duration-200">
+                <div
+                  class="w-9 h-9 rounded-xl bg-rose-50 text-[#9B2242] flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <i data-lucide="sparkle" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="text-sm font-semibold text-stone-800">Dreams Coming True</h3>
+                  <p class="text-xs text-stone-500 leading-relaxed mt-1 font-light">
+                    All the prayers and hopes you silently whisper in the quiet of night, may they blossom into reality.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Wish 3 -->
+              <div
+                class="bg-white p-5 rounded-2xl border border-rose-100/90 shadow-sm flex items-start gap-4 hover:border-rose-200 transition-all duration-200">
+                <div
+                  class="w-9 h-9 rounded-xl bg-rose-50 text-[#9B2242] flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <i data-lucide="infinity" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="text-sm font-semibold text-stone-800">Endless Joy Together</h3>
+                  <p class="text-xs text-stone-500 leading-relaxed mt-1 font-light">
+                    More unplanned road trips, quiet late-night talks, laughter over coffee, and holding hands tightly.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Mini Music Player Card -->
+          <div class="lg:col-span-5 flex justify-center lg:justify-end">
+            <div
+              class="w-full max-w-[360px] bg-white p-8 rounded-3xl border border-rose-100 shadow-xl shadow-rose-950/5 relative overflow-hidden">
+
+              <!-- Vinyl Record Graphic with Spin Animation -->
+              <div class="flex justify-center mb-6">
+                <div id="vinyl-record"
+                  class="w-28 h-28 rounded-full bg-gradient-to-tr from-stone-900 via-stone-800 to-stone-900 p-2 shadow-2xl relative animate-spin-slow paused ring-4 ring-rose-50">
+                  <!-- Vinyl Grooves -->
+                  <div
+                    class="w-full h-full rounded-full border border-stone-700/60 flex items-center justify-center relative overflow-hidden">
+                    <div class="w-16 h-16 rounded-full border border-stone-700/80 flex items-center justify-center">
+                      <!-- Center Album Label -->
+                      <div
+                        class="w-10 h-10 rounded-full bg-[#9B2242] flex items-center justify-center text-white relative shadow-inner">
+                        <i data-lucide="heart" class="w-4 h-4 fill-current text-white/90"></i>
+                        <!-- Center Spindle Hole -->
+                        <div class="w-2.5 h-2.5 rounded-full bg-stone-900 border border-stone-400 absolute"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Song Meta -->
+              <div class="text-center">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-[#9B2242] block mb-1">
+                  NOW PLAYING
+                </span>
+                <h4 id="song-title" class="font-serif text-lg font-bold text-stone-900">
+                  Sampai Jadi Debu
+                </h4>
+                <p id="artist-name" class="text-xs text-stone-400 font-light mt-0.5">
+                  Banda Neira
+                </p>
+              </div>
+
+              <!-- Progress Bar -->
+              <div class="mt-6">
+                <div id="progress-bar"
+                  class="w-full h-1.5 bg-rose-100 rounded-full overflow-hidden cursor-pointer relative">
+                  <div id="progress-fill" class="h-full bg-[#9B2242] rounded-full transition-all duration-200"
+                    style="width: 37%;"></div>
+                </div>
+                <div class="flex items-center justify-between text-[10px] font-medium text-stone-400 mt-2">
+                  <span id="current-time">01:24</span>
+                  <span id="total-time">03:45</span>
+                </div>
+              </div>
+
+              <!-- Playback Controls -->
+              <div class="flex items-center justify-center gap-6 mt-5">
+                <button id="prev-btn" title="Previous Track"
+                  class="text-stone-400 hover:text-stone-700 transition-colors p-2 focus:outline-none">
+                  <i data-lucide="skip-back" class="w-4 h-4"></i>
+                </button>
+
+                <button id="play-btn" title="Play / Pause"
+                  class="w-12 h-12 rounded-full bg-[#9B2242] hover:bg-[#801B36] text-white flex items-center justify-center shadow-md shadow-rose-900/20 hover:scale-105 transition-all duration-300 focus:outline-none">
+                  <i id="play-icon" data-lucide="play" class="w-5 h-5 ml-0.5 fill-current"></i>
+                  <i id="pause-icon" data-lucide="pause" class="w-5 h-5 fill-current hidden"></i>
+                </button>
+
+                <button id="next-btn" title="Next Track"
+                  class="text-stone-400 hover:text-stone-700 transition-colors p-2 focus:outline-none">
+                  <i data-lucide="skip-forward" class="w-4 h-4"></i>
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         LOVE COUPONS SECTION
+         ======================================================================== -->
+    <!-- <section id="coupons" class="py-20 bg-rose-50/20">
+      <div class="max-w-6xl mx-auto px-6"> -->
+    <!-- Title & Subtitle -->
+    <!-- <div class="text-center max-w-xl mx-auto mb-14">
+          <div class="text-[11px] font-bold uppercase tracking-widest text-[#9B2242] mb-1">
+            NO EXPIRY DATE
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 font-normal">
+            Love Coupons
+          </h2>
+        </div> -->
+
+    <!-- 3 Coupon Cards -->
+    <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-6"> -->
+
+    <!-- Coupon 1 -->
+    <!-- <div
+            class="coupon-card p-6 sm:p-7 rounded-2xl border border-rose-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
+            <div>
+              <div
+                class="flex items-center justify-between text-[11px] font-bold tracking-widest text-stone-400 uppercase mb-3">
+                <span>COUPON #01</span>
+                <span class="text-[#9B2242]">♡</span>
+              </div>
+              <h3 class="font-serif text-xl font-medium text-stone-900 mb-2">Dinner Date</h3>
+              <p class="text-xs text-stone-500 leading-relaxed font-light">
+                Valid for one special dinner at any restaurant you crave, anytime, anywhere. Zero complaints, my treat.
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-dashed border-rose-200 flex items-center justify-between text-xs">
+              <span class="text-[10px] uppercase tracking-wider text-stone-400">VALID FOREVER</span>
+              <button class="redeem-coupon-btn text-[#9B2242] font-semibold hover:underline focus:outline-none"
+                data-coupon-id="c1" data-coupon-title="Dinner Date"
+                data-coupon-desc="Makan malam romantis di restoran mana pun yang kamu mau, my treat!">
+                REDEEM TICKET
+              </button>
+            </div>
+          </div> -->
+
+    <!-- Coupon 2 -->
+    <!-- <div
+            class="coupon-card p-6 sm:p-7 rounded-2xl border border-rose-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
+            <div>
+              <div
+                class="flex items-center justify-between text-[11px] font-bold tracking-widest text-stone-400 uppercase mb-3">
+                <span>COUPON #02</span>
+                <span class="text-[#9B2242]">♡</span>
+              </div>
+              <h3 class="font-serif text-xl font-medium text-stone-900 mb-2">Weekend Escape</h3>
+              <p class="text-xs text-stone-500 leading-relaxed font-light">
+                A spontaneous road trip or cozy staycation to unwind, relax, and disconnect from the hectic routine
+                together.
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-dashed border-rose-200 flex items-center justify-between text-xs">
+              <span class="text-[10px] uppercase tracking-wider text-stone-400">VALID FOREVER</span>
+              <button class="redeem-coupon-btn text-[#9B2242] font-semibold hover:underline focus:outline-none"
+                data-coupon-id="c2" data-coupon-title="Weekend Escape"
+                data-coupon-desc="Liburan akhir pekan seru atau staycation santai untuk recharge energi bersama!">
+                REDEEM TICKET
+              </button>
+            </div>
+          </div> -->
+
+    <!-- Coupon 3 -->
+    <!-- <div
+            class="coupon-card p-6 sm:p-7 rounded-2xl border border-rose-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
+            <div>
+              <div
+                class="flex items-center justify-between text-[11px] font-bold tracking-widest text-stone-400 uppercase mb-3">
+                <span>COUPON #03</span>
+                <span class="text-[#9B2242]">♡</span>
+              </div>
+              <h3 class="font-serif text-xl font-medium text-stone-900 mb-2">All-Day Hugs</h3>
+              <p class="text-xs text-stone-500 leading-relaxed font-light">
+                Unlimited warm cuddles, relaxing shoulder massage, your favorite sweet snacks, and full movie pick
+                privilege.
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-dashed border-rose-200 flex items-center justify-between text-xs">
+              <span class="text-[10px] uppercase tracking-wider text-stone-400">VALID FOREVER</span>
+              <button class="redeem-coupon-btn text-[#9B2242] font-semibold hover:underline focus:outline-none"
+                data-coupon-id="c3" data-coupon-title="All-Day Hugs"
+                data-coupon-desc="Pelukan tanpa batas, pijatan lembut, snack favorit, dan maraton film seharian!">
+                REDEEM TICKET
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section> -->
+
+    <!-- ========================================================================
+         A REAL GIFT AWAITS / WHATSAPP CALL TO ACTION
+         ======================================================================== -->
+    <!-- <section class="py-20">
+      <div class="max-w-xl mx-auto px-6 text-center">
+        <div class="bg-white p-8 sm:p-12 rounded-3xl border border-rose-100 shadow-lg shadow-rose-950/5"> -->
+    <!-- Car / Gift Icon Badge -->
+    <!-- <div
+            class="w-12 h-12 rounded-full bg-rose-50 text-[#9B2242] border border-rose-200/60 flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="gift" class="w-5 h-5"></i>
+          </div>
+
+          <h2 class="font-serif text-2xl sm:text-3xl font-medium text-stone-900 mb-2">
+            A Real Gift Awaits
+          </h2>
+          <p class="text-stone-500 text-xs sm:text-sm font-light max-w-sm mx-auto mb-8">
+            Prepare yourself, open your door or check your bag today!
+          </p> -->
+
+    <!-- WhatsApp Button -->
+    <!-- <a id="whatsapp-cta"
+      href="https://wa.me/?text=Hai%20sayang!%20Happy%20birthday%20to%20me%20%E2%9D%A4%EF%B8%8F%20Makasih%20banyak%20yaa%20websitenya%20manis%20banget!%20Kado%20dan%20kuponnya%20mau%20aku%20klaim%20sekarang%20%E2%9C%A8"
+      target="_blank" rel="noopener noreferrer"
+      class="bg-[#9B2242] hover:bg-[#801B36] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase px-8 py-4 rounded-full shadow-lg shadow-rose-900/25 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 inline-flex items-center gap-2.5 focus:outline-none">
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+        <path
+          d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+      </svg>
+      <span>SEND ME A MSG ON WHATSAPP</span>
+    </a>
+    </div>
+    </div>
+    </section> -->
+
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="py-12 border-t border-rose-100/60 text-center relative z-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-[10px] font-bold tracking-widest uppercase text-[#9B2242] mb-1">
+        A LABOR OF LOVE
+      </div>
+      <p class="text-[11px] font-medium tracking-wider uppercase text-stone-400">
+        CRAFTED WITH LOVE FOR YOUR SPECIAL DAY
+      </p>
+      <div class="mt-3 text-xs text-stone-300">
+        Forever & Always Yours ♡
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       INTERACTIVE MODALS
+       ======================================================================== -->
+
+  <!-- Lightbox Modal for Gallery -->
+  <div id="lightbox-modal"
+    class="fixed inset-0 bg-stone-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <button id="close-lightbox"
+      class="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full focus:outline-none">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+
+    <button id="prev-lightbox"
+      class="absolute left-4 sm:left-8 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-all focus:outline-none">
+      <i data-lucide="chevron-left" class="w-6 h-6"></i>
+    </button>
+
+    <div class="max-w-3xl w-full flex flex-col items-center">
+      <div class="max-h-[75vh] overflow-hidden rounded-2xl shadow-2xl">
+        <img id="lightbox-img" src="" alt="Enlarged Memory"
+          class="w-full h-auto max-h-[75vh] object-contain rounded-2xl">
+      </div>
+      <div class="text-center mt-4">
+        <h4 id="lightbox-title" class="font-serif text-xl text-white font-medium"></h4>
+        <p id="lightbox-location" class="text-xs text-rose-200 font-light mt-1"></p>
+      </div>
+    </div>
+
+    <button id="next-lightbox"
+      class="absolute right-4 sm:right-8 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-all focus:outline-none">
+      <i data-lucide="chevron-right" class="w-6 h-6"></i>
+    </button>
+  </div>
+
+  <!-- Coupon Redeemed Celebration Modal -->
+  <div id="coupon-modal"
+    class="fixed inset-0 bg-stone-950/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div
+      class="bg-white rounded-3xl max-w-sm w-full p-8 text-center shadow-2xl border border-rose-100 transform animate-in fade-in duration-300">
+      <div class="w-12 h-12 rounded-full bg-rose-50 text-[#9B2242] flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="ticket-check" class="w-6 h-6"></i>
+      </div>
+      <span class="text-[10px] font-bold uppercase tracking-widest text-[#9B2242] block mb-1">
+        KUPON BERHASIL DIKLAIM!
+      </span>
+      <h3 id="coupon-modal-title" class="font-serif text-2xl font-semibold text-stone-900 mb-2"></h3>
+      <p id="coupon-modal-desc" class="text-xs text-stone-600 leading-relaxed font-light mb-6"></p>
+      <button id="close-coupon-modal"
+        class="w-full bg-[#9B2242] hover:bg-[#801B36] text-white text-xs font-semibold tracking-wider uppercase py-3.5 rounded-full shadow-md transition-colors focus:outline-none">
+        SIAP DIGUNAKAN ♡
+      </button>
+    </div>
+  </div>
+
+  <!-- Read Our Story Timeline Modal -->
+  <div id="story-modal"
+    class="fixed inset-0 bg-stone-950/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div
+      class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-rose-100 max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-rose-100 pb-4 mb-6">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-[#9B2242]">OUR JOURNEY</span>
+          <h3 class="font-serif text-2xl font-normal text-stone-900">Chapters of Us</h3>
+        </div>
+        <button id="close-story-modal" class="text-stone-400 hover:text-stone-700 p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-6 text-xs text-stone-600 font-light leading-relaxed">
+        <div class="flex gap-4">
+          <div class="w-2 rounded-full bg-[#9B2242] flex-shrink-0"></div>
+          <div>
+            <h4 class="font-semibold text-stone-800 text-sm mb-1">The First Glance</h4>
+            <p>Hari pertama kita bertemu dan berbicara santai, siapa sangka percakapan kecil itu menjadi awal dari bab
+              terindah dalam hidupku.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-2 rounded-full bg-rose-300 flex-shrink-0"></div>
+          <div>
+            <h4 class="font-semibold text-stone-800 text-sm mb-1">Countless Coffees & Laughs</h4>
+            <p>Dari cerita-cerita kecil di kedai kopi hingga tawa renyah di pinggir jalan. Setiap waktu yang dihabiskan
+              bersamamu selalu terasa begitu berharga.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-2 rounded-full bg-rose-200 flex-shrink-0"></div>
+          <div>
+            <h4 class="font-semibold text-stone-800 text-sm mb-1">Today & Forever</h4>
+            <p>Hari ini kita merayakan kehadiranmu di dunia. Terima kasih sudah lahir dan menjadi rumah paling hangat
+              bagiku. Selamat ulang tahun, cintaku!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="#gallery"
+          onclick="document.getElementById('story-modal').classList.add('hidden'); document.body.style.overflow='';"
+          class="inline-block text-[#9B2242] text-xs font-semibold tracking-wider uppercase hover:underline">
+          LIHAT GALERI KENANGAN KITA →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Open Gift Surprise Modal -->
+  <div id="gift-modal"
+    class="fixed inset-0 bg-stone-950/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-8 text-center shadow-2xl border border-rose-100">
+      <div
+        class="w-16 h-16 rounded-full bg-rose-50 text-[#9B2242] flex items-center justify-center mx-auto mb-4 animate-bounce">
+        <i data-lucide="gift" class="w-8 h-8"></i>
+      </div>
+      <span class="text-[10px] font-bold uppercase tracking-widest text-[#9B2242] block mb-1">
+        SURPRISE UNLOCKED!
+      </span>
+      <h3 class="font-serif text-2xl font-normal text-stone-900 mb-2">A Special Gift For You</h3>
+      <p class="text-xs text-stone-600 leading-relaxed font-light mb-6">
+        Selamat ulang tahun yang ke-23 untuk orang yang paling bikin aku bahagia. Di usiamu yang baru ini, aku cuma mau bilang terima kasih karena kamu selalu jadi pasangan yang luar biasa. Harapanku, semoga semua hal baik selalu ngelilingin kamu, dan semoga semua Wishlistnya perlahan satu persatu terkabul.
+      </p>
+      <div class="space-y-3">
+        <!-- <a href="https://wa.me/?text=Halo%20sayang!%20Aku%20udah%20buka%20webnya%20dan%20mau%20buka%20kado%20spesialku%20sekarang%20%E2%9C%A8%E2%9D%A4%EF%B8%8F"
+          target="_blank"
+          class="block w-full bg-[#9B2242] hover:bg-[#801B36] text-white text-xs font-semibold tracking-wider uppercase py-3.5 rounded-full shadow-md transition-colors">
+          KLAIM KADO LEWAT WHATSAPP
+        </a> -->
+        <button id="close-gift-modal"
+          class="w-full bg-stone-100 hover:bg-stone-200 text-stone-600 text-xs font-semibold tracking-wider uppercase py-3 rounded-full transition-colors">
+          TUTUP
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>

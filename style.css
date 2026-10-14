@@ -1,0 +1,109 @@
+/* Custom Styling & Polish for Birthday Web */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap');
+
+:root {
+  --primary-berry: #9B2242;
+  --primary-berry-hover: #801B36;
+  --accent-blush: #FCE7EC;
+  --accent-cream: #FAF7F5;
+  --text-main: #2D2426;
+  --text-muted: #7E7275;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #FAF7F5;
+  color: #2D2426;
+}
+
+.font-serif-luxury {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-handwritten {
+  font-family: 'Caveat', cursive;
+}
+
+/* Custom vinyl spin */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+.paused {
+  animation-play-state: paused !important;
+}
+
+/* Ticket notch cuts on sides of coupons */
+.coupon-card {
+  position: relative;
+  background-color: #ffffff;
+}
+
+.coupon-card::before,
+.coupon-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  background-color: #FAF7F5;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border: 1px solid #F3E8E8;
+}
+
+.coupon-card::before {
+  left: -9px;
+  border-left-color: transparent;
+}
+
+.coupon-card::after {
+  right: -9px;
+  border-right-color: transparent;
+}
+
+/* Subtle background glowing grain / ambient gradients */
+.bg-romantic-radial {
+  background: radial-gradient(circle at 10% 20%, rgba(252, 231, 236, 0.6) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(254, 240, 243, 0.8) 0%, transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+              #FAF7F5;
+}
+
+/* Petal float effect */
+.petal {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  user-select: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8D5D8;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9B2242;
+}
